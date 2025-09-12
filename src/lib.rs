@@ -1,9 +1,6 @@
 use std::{collections::HashMap, fmt::Debug, hash::Hash};
 
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
+/// Return type of unique_inverse. Contains an vec with a unique-array and an inverses-array
 #[derive(Debug, PartialEq)]
 pub struct UniqueInverse<T>
 where
@@ -13,6 +10,14 @@ where
     pub inverses: Vec<usize>,
 }
 
+/// Computes the values and returns the uniques and an inverse array
+/// # Example
+/// ```
+/// use unique_inverse::*;
+///
+/// let result = unique_inverse(vec![1,1,1]);
+/// assert_eq!(result,UniqueInverse{uniques: vec![1],inverses: vec![0,0,0]});
+/// ```
 pub fn unique_inverse<T>(input: Vec<T>) -> UniqueInverse<T>
 where
     T: Eq + Hash + Debug + Default + Clone,
